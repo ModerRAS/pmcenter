@@ -10,7 +10,7 @@ namespace pmcenter.CommandLines
     {
         public string Prefix => "info";
         public bool ExitAfterExecution => true;
-        public async Task<bool> Process()
+        public async Task<bool> Process(string CmdLine)
         {
             Log("Gathering application information... This may take a while for there's some network activities.", "CMD");
             bool IsTelegramAPIAccessible = await TestConnectivity("https://api.telegram.org/bot/", true);

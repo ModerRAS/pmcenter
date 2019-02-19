@@ -10,7 +10,7 @@ namespace pmcenter.CommandLines
     {
         public string Prefix => "reset";
         public bool ExitAfterExecution => true;
-        public async Task<bool> Process()
+        public async Task<bool> Process(string CmdLine)
         {
             Log("Resetting configurations...", "CMD");
             Vars.CurrentConf = new Conf.ConfObj();

@@ -10,7 +10,7 @@ namespace pmcenter.CommandLines
     {
         public string Prefix => "setup";
         public bool ExitAfterExecution => true;
-        public async Task<bool> Process()
+        public async Task<bool> Process(string CmdLine)
         {
             Log("Launching setup wizard...", "CMD");
             // use the global error handler.

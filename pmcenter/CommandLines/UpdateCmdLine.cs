@@ -12,7 +12,7 @@ namespace pmcenter.CommandLines
     {
         public string Prefix => "update";
         public bool ExitAfterExecution => true;
-        public async Task<bool> Process()
+        public async Task<bool> Process(string CmdLine)
         {
             Log("Application version: " + Vars.AppVer.ToString(), "CMD");
             Log("Checking for updates...", "CMD");

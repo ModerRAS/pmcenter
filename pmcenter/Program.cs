@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using CommandLine;
 using MihaZupan;
 using Telegram.Bot;
 using Telegram.Bot.Types.Enums;
@@ -36,7 +37,10 @@ namespace pmcenter
             try
             {
                 Log("==> Running pre-start operations...");
-                await CmdLineProcess.RunCommand(Environment.CommandLine);
+                Parser.Default.ParseArguments<CmdLines.BackupOption>(args)
+                    .MapResult(
+                      (CmdLines.BackupOption Opts) => Opts.Run(),
+                      errs => 1);
                 // everything (exits and/or errors) are handled above, please do not process.
                 Log("==> Running start operations...");
                 Log("==> Initializing module - CONF"); // BY DEFAULT CONF & LANG ARE NULL! PROCEED BEFORE DOING ANYTHING.
