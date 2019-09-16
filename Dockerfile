@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.1-runtime-alpine
+FROM microsoft/dotnet:2.2-runtime-alpine
 
 WORKDIR /opt
 
